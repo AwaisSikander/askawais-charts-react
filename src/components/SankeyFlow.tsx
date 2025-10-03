@@ -1,4 +1,3 @@
-import React from "react";
 import { Sankey, Tooltip, ResponsiveContainer } from "recharts";
 
 type Node = { name: string };

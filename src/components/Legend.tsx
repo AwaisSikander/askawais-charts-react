@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Legend({ items }: { items: { label: string }[] }) {
   return (
     <div className="flex gap-3 text-xs text-slate-600">

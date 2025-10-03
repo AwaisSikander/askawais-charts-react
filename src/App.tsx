@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
 import KpiCard from "./components/KpiCard";
 import TimeSeriesBand from "./components/TimeSeriesBand";
 import StackedBarDept from "./components/StackedBarDept";

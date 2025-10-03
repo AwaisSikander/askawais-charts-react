@@ -1,6 +1,5 @@
-import React from "react";
-
 type Props = { label: string; value: string | number; delta?: number };
+
 export default function KpiCard({ label, value, delta }: Props) {
   const pos = (delta ?? 0) >= 0;
   return (

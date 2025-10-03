@@ -48,16 +48,12 @@ export default function ChoroplethMapML({ geo }: Props) {
           initialViewState={initial}
           mapStyle={STYLE_URL}
           interactiveLayerIds={["district-fill"]}
+          onMouseMove={onMouseMove}
+          onMouseLeave={onMouseLeave}
           style={{ width: "100%", height: "100%" }}
         >
           <Source id="districts" type="geojson" data={geo}>
-            <Layer
-              id="district-fill"
-              type="fill"
-              paint={fillPaint}
-              onMousemove={onMouseMove}
-              onMouseleave={onMouseLeave}
-            />
+            <Layer id="district-fill" type="fill" paint={fillPaint} />
             <Layer id="district-line" type="line" paint={linePaint} />
           </Source>
         </Map>

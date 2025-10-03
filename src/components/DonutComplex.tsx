@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   PieChart,
   Pie,
@@ -84,18 +84,21 @@ export default function DonutComplex({
               <Label
                 position="center"
                 content={({ viewBox }) => {
+                  const vb = viewBox as any; // Pie label viewBox has cx/cy at runtime
                   if (
-                    !viewBox ||
-                    typeof viewBox.cx !== "number" ||
-                    typeof viewBox.cy !== "number"
+                    !vb ||
+                    typeof vb.cx !== "number" ||
+                    typeof vb.cy !== "number"
                   )
                     return null;
-                  const cx = viewBox.cx,
-                    cy = viewBox.cy;
+                  const cx = vb.cx,
+                    cy = vb.cy;
+
                   const active = activeIndex != null ? data[activeIndex] : null;
-                  const activePct = active
-                    ? Math.round((active.value / total) * 100)
+                  const activePct = total
+                    ? Math.round(((active?.value ?? 0) / total) * 100)
                     : null;
+
                   return (
                     <g>
                       <text
